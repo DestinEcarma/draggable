@@ -1,7 +1,9 @@
 [package]
-name = "maker/draggable"
+name = "makerdoe/draggable"
 description = "Allows you to make your GuiObjects Draggable"
 version = "1.0.0"
+license = "MIT"
+authors = ["MakerDoe"]
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
 
