@@ -82,3 +82,23 @@ Draggable.Ended:Connect(function(mousePosition: Vector2) end) -> Signal
 ```
 
 Fired when a user stopped interacting with the GuiObject.
+
+## Installation
+
+### GitHub
+
+You can download `Draggable.rbxm` simply by visiting the [releases](https://github.com/MakerDoe/Draggable/releases) page.
+
+### Roblox
+
+You can get the Draggable model, with this [link](https://www.roblox.com/library/16246094097/Draggable).
+
+### Wally
+
+You can get the Draggable module as a dependancy with wally. On the `wally.toml` under `[dependencies]` simply add this line:
+
+```toml
+draggable = "makerdoe/draggable@1.0.1"
+# Don't mind the difference in version; there was a mistake I made when publishing the package to Wally.
+```
+
