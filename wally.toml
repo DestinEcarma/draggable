@@ -1,0 +1,9 @@
+[package]
+name = "maker/draggable"
+description = "Allows you to make your GuiObjects Draggable"
+version = "1.0.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+
+[dependencies]
+Signal = "lucasmzreal/fastsignal@10.2.1"

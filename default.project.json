@@ -1,0 +1,17 @@
+{
+	"name": "Draggable",
+	"tree": {
+		"$className": "DataModel",
+		"ReplicatedStorage": {
+			"$className": "ReplicatedStorage",
+			"$path": "src/ReplicatedStorage",
+			"Packages": {
+				"$path": "Packages"
+			}
+		},
+		"StarterGui": {
+			"$className": "StarterGui",
+			"$path": "src/StarterGui"
+		}
+	}
+}
