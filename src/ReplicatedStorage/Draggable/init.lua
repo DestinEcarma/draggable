@@ -8,12 +8,22 @@ local Signal = require(Packages.Signal)
 local Prototype = require(script.Prototype)
 local EventHanlder = require(script.EventHandler)
 
+--[=[
+	@client
+	@class Draggable
+]=]
 local Draggable = {}
 
 type Schema = Prototype.Schema
 
 export type Class = Prototype.Class
 
+--[=[
+	This function creates a Draggable object, which turns the GuiObject into a Draggable GuiObject.
+
+	@param guiObject GuiObject
+	@return Draggable
+]=]
 function Draggable.new(guiObject: GuiObject): Class
 	if typeof(guiObject) ~= "Instance" then
 		return error("Argument #1 must be a type of Instance", 2)
@@ -50,6 +60,12 @@ end
 	? For what purpose? It is to counter the Cyclic Module Dependecy.
 ]]
 
+--[=[
+	Removes the draggable capability from the associated GuiObject.
+
+	@within Draggable
+	@method Destroy
+]=]
 function Prototype.Destroy(self: Class)
 	EventHanlder.Draggables[self._guiObject] = nil
 
@@ -64,6 +80,12 @@ function Prototype.Destroy(self: Class)
 	table.clear(self._include)
 end
 
+--[=[
+	Allows the user to drag the Draggable GuiObject on its descendants.
+
+	@within Draggable
+	@method IncludeDescendants
+]=]
 function Prototype.IncludeDescendants(self: Class)
 	for _, instance in ipairs(self._guiObject:GetDescendants()) do
 		if not instance:IsA("GuiObject") then
@@ -75,6 +97,34 @@ function Prototype.IncludeDescendants(self: Class)
 	end
 end
 
+--[=[
+	This function works similarly to [`IncludeDescendants`](#IncludeDescendants), but the developer can pass an array containing specific descendants of the GuiObject to be draggable.
+
+	Example:
+	```lua
+	local draggableObject = Draggable.new(exampleFrame)
+
+	local list = [] -- Do not include TextButtons
+
+	for i, guiObject in exampleFrame:GetDescendants() do
+		if guiObject:IsA("TextButton") then
+			continue
+		end
+
+		table.insert(list, guiObject)
+	end
+
+	draggableObject:Include(list)
+	```
+
+	:::important
+	Make sure that every element on the list is a GuiObject and that it is a descendant of the Draggable GuiObject.
+	:::
+
+	@within Draggable
+	@param guiObjects {GuiObject}
+	@method Include
+]=]
 function Prototype.Include(self: Class, guiObjects: { GuiObject })
 	for i, guiObject in ipairs(guiObjects) do
 		if typeof(guiObject) ~= "Instance" then
