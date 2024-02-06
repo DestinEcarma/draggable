@@ -1,0 +1,10 @@
+gitRepoUrl = "https://github.com/MakerDoe/Draggable" # From Git
+
+classOrder = ["Draggable"]
+
+[home]
+enabled = true
+includeReadme = false
+
+[docusaurus]
+tagline = "Effortlessly replace the deprecated Draggable property in GuiObjects"
