@@ -69,7 +69,7 @@ end
 function Prototype.Destroy(self: Class)
 	EventHanlder.Draggables[self._guiObject] = nil
 
-	for _, guiObject in ipairs(self._include) do
+	for _, guiObject in self._include do
 		EventHanlder.Draggables[guiObject] = nil
 	end
 
@@ -87,7 +87,7 @@ end
 	@method IncludeDescendants
 ]=]
 function Prototype.IncludeDescendants(self: Class)
-	for _, instance in ipairs(self._guiObject:GetDescendants()) do
+	for _, instance in self._guiObject:GetDescendants() do
 		if not instance:IsA("GuiObject") then
 			continue
 		end
@@ -126,7 +126,7 @@ end
 	@method Include
 ]=]
 function Prototype.Include(self: Class, guiObjects: { GuiObject })
-	for i, guiObject in ipairs(guiObjects) do
+	for i, guiObject in guiObjects do
 		if typeof(guiObject) ~= "Instance" then
 			warn(`Index #{i} is not a type of Instance`)
 			continue
