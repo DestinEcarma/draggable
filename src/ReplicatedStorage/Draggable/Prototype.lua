@@ -34,6 +34,15 @@ Prototype.__index = Prototype
 ]=]
 
 --[=[
+	@since v1.0.3
+	@within Draggable
+	@prop _boundaryCorners nil | {topLeft: Vector2, bottomRight: Vector2}
+	@private
+
+	This property is used to store the corners of the [`boundary`](#Boundary) of the Draggable GuiObject.
+]=]
+
+--[=[
 	@within Draggable
 	@prop Enabled boolean
 
@@ -94,16 +103,26 @@ Prototype.__index = Prototype
 	```
 ]=]
 
+--[=[
+	@since v1.0.3
+	@within Draggable
+	@prop Boundary nil | GuiBase2d
+
+	This property can be a nil, GuiObject, or GuiBase2d. It determines the boundary of the Draggable GuiObject.
+]=]
+
 export type Schema = {
 	_mouseOffset: Vector2,
 	_guiObject: GuiObject,
 	_include: { GuiObject },
+	_boundaryCorners: nil | { topLeft: Vector2, bottomRight: Vector2 },
 
 	Enabled: boolean,
 
 	Dragging: Signal.Class,
 	Began: Signal.Class,
 	Ended: Signal.Class,
+	Boundary: nil | GuiBase2d,
 }
 
 export type Class = typeof(setmetatable({} :: Schema, Prototype))
@@ -118,6 +137,7 @@ export type Class = typeof(setmetatable({} :: Schema, Prototype))
 ]=]
 function Prototype.Dragging(self: Class, mousePosition: Vector2)
 	local guiObject = self._guiObject
+	local boundaryCorners = self._boundaryCorners
 
 	local parent = guiObject:FindFirstAncestorWhichIsA("GuiBase2d")
 
@@ -126,6 +146,16 @@ function Prototype.Dragging(self: Class, mousePosition: Vector2)
 	end
 
 	local newPosition = (mousePosition + self._mouseOffset) - parent.AbsolutePosition
+
+	if boundaryCorners then
+		local topLeft = boundaryCorners.topLeft
+		local bottomRight = boundaryCorners.bottomRight
+
+		local x = math.clamp(newPosition.X, topLeft.X, bottomRight.X)
+		local y = math.clamp(newPosition.Y, topLeft.Y, bottomRight.Y)
+
+		newPosition = Vector2.new(x, y)
+	end
 
 	guiObject.Position = UDim2.fromOffset(newPosition.X, newPosition.Y)
 
@@ -142,11 +172,25 @@ end
 ]=]
 function Prototype.Began(self: Class, mousePosition: Vector2)
 	local guiObject = self._guiObject
+	local boundary = self.Boundary
 
 	local offsetFromAnchorPoint = guiObject.AnchorPoint * guiObject.AbsoluteSize
 	local rawOffset = guiObject.AbsolutePosition - mousePosition
 
 	self._mouseOffset = rawOffset + offsetFromAnchorPoint
+
+	if boundary then
+		local parent = guiObject.Parent :: GuiBase2d
+
+		local boundaryPosition = boundary.AbsolutePosition - parent.AbsolutePosition
+
+		self._boundaryCorners = {
+			topLeft = boundaryPosition + offsetFromAnchorPoint,
+			bottomRight = boundaryPosition + boundary.AbsoluteSize - offsetFromAnchorPoint,
+		}
+	else
+		self._boundaryCorners = nil
+	end
 
 	self.Began:Fire(mousePosition)
 end
