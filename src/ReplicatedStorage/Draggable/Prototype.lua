@@ -177,10 +177,12 @@ function Prototype.Began(self: Class, mousePosition: Vector2)
 	local offsetFromAnchorPoint = guiObject.AnchorPoint * guiObject.AbsoluteSize
 	local rawOffset = guiObject.AbsolutePosition - mousePosition
 
-	self._mouseOffset = rawOffset + offsetFromAnchorPoint - parent.AbsolutePosition
+	local parentPosition = parent.AbsolutePosition
+
+	self._mouseOffset = rawOffset + offsetFromAnchorPoint - parentPosition
 
 	if boundary then
-		local boundaryPosition = boundary.AbsolutePosition - parent.AbsolutePosition
+		local boundaryPosition = boundary.AbsolutePosition - parentPosition
 
 		self._boundaryCorners = {
 			topLeft = boundaryPosition + offsetFromAnchorPoint,
