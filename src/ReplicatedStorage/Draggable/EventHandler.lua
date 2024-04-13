@@ -55,7 +55,7 @@ UserInputService.InputBegan:Connect(function(input, gameProccessedEvent)
 	end
 
 	for _, guiObject in guiObjects do
-		if not (guiObject :: GuiObject).Interactable then
+		if guiObject:IsA("GuiButton") or not (guiObject :: GuiObject).Interactable then
 			continue
 		end
 
