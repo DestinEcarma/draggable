@@ -34,7 +34,7 @@ Prototype.__index = Prototype
 ]=]
 
 --[=[
-	@since v1.0.3
+	@since v1.1.0
 	@within Draggable
 	@prop _boundaryCorners nil | {topLeft: Vector2, bottomRight: Vector2}
 	@private
@@ -104,7 +104,7 @@ Prototype.__index = Prototype
 ]=]
 
 --[=[
-	@since v1.0.3
+	@since v1.1.0
 	@within Draggable
 	@prop Boundary nil | GuiBase2d
 
