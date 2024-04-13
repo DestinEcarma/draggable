@@ -65,7 +65,7 @@ end
 ]]
 
 --[=[
-	Removes the draggable capability from the associated GuiObject.
+	Removes the draggable capability from the associated GuiObject. `Since v1.0.3`, this function is automatically called when the GuiObject is destroyed.
 
 	@within Draggable
 	@method Destroy
