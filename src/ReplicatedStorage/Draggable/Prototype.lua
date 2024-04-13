@@ -108,7 +108,7 @@ Prototype.__index = Prototype
 	@within Draggable
 	@prop Boundary nil | GuiBase2d
 
-	This property can be a nil, GuiObject, or GuiBase2d. It determines the boundary of the Draggable GuiObject.
+	This property can be nil or GuiBase2d. It determines the boundary of the Draggable GuiObject.
 ]=]
 
 export type Schema = {
