@@ -2,8 +2,10 @@
 
 ## 1.1.1
 
-- EventHandler InputBegan event will now only recognize if the GuiObject's Interactable is enabled.
+- Transferred differencing the `parent.AbsolutePosition` from `Dragging` to `Began` in Prototype.
+- EventHandler InputBegan will now only recognize if the GuiObject's Interactable is enabled.
 - EventHandler InputBegan will now ignore GuiButtons.
+- EventHandler InputChanged removed `gameProccessedEvent`.
 - Optimized some of the if conditions in `EventHandler`.
 
 ## 1.1.0
