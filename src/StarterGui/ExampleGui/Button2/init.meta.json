@@ -1,0 +1,22 @@
+{
+	"className": "TextButton",
+	"properties": {
+		"BackgroundColor3": [1, 1, 1],
+		"BorderColor3": [0, 0, 0],
+		"Position": {
+			"UDim2": [
+				[0, 10],
+				[0, 70]
+			]
+		},
+		"Size": {
+			"UDim2": [
+				[0, 100],
+				[0, 50]
+			]
+		},
+		"Text": "Second Parent",
+		"TextColor3": [0, 0, 0],
+		"TextSize": 11
+	}
+}
