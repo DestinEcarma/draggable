@@ -139,13 +139,7 @@ function Prototype.Dragging(self: Class, mousePosition: Vector2)
 	local guiObject = self._guiObject
 	local boundaryCorners = self._boundaryCorners
 
-	local parent = guiObject:FindFirstAncestorWhichIsA("GuiBase2d")
-
-	if not parent then
-		return warn("GuiObject is not a descendant of GuiBase2d")
-	end
-
-	local newPosition = (mousePosition + self._mouseOffset) - parent.AbsolutePosition
+	local newPosition = mousePosition + self._mouseOffset
 
 	if boundaryCorners then
 		local topLeft = boundaryCorners.topLeft
@@ -174,14 +168,18 @@ function Prototype.Began(self: Class, mousePosition: Vector2)
 	local guiObject = self._guiObject
 	local boundary = self.Boundary
 
+	local parent = guiObject:FindFirstAncestorWhichIsA("GuiBase2d")
+
+	if not parent then
+		return warn("GuiObject is not a descendant of GuiBase2d")
+	end
+
 	local offsetFromAnchorPoint = guiObject.AnchorPoint * guiObject.AbsoluteSize
 	local rawOffset = guiObject.AbsolutePosition - mousePosition
 
-	self._mouseOffset = rawOffset + offsetFromAnchorPoint
+	self._mouseOffset = rawOffset + offsetFromAnchorPoint - parent.AbsolutePosition
 
 	if boundary then
-		local parent = guiObject.Parent :: GuiBase2d
-
 		local boundaryPosition = boundary.AbsolutePosition - parent.AbsolutePosition
 
 		self._boundaryCorners = {
