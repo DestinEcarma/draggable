@@ -6,7 +6,7 @@
 		"Position": {
 			"UDim2": [
 				[0, 10],
-				[0, 130]
+				[0, 190]
 			]
 		},
 		"Size": {
@@ -15,7 +15,7 @@
 				[0, 50]
 			]
 		},
-		"Text": "First Parent",
+		"Text": "Inside Frame",
 		"TextColor3": [0, 0, 0],
 		"TextSize": 11
 	}
