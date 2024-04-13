@@ -33,7 +33,7 @@ UserInputService.InputChanged:Connect(function(input, gameProccessedEvent)
 
 	local draggable = EventHandler.Dragging
 
-	if not draggable or (draggable and not draggable.Enabled) then
+	if not draggable or not draggable.Enabled then
 		return
 	end
 
@@ -56,7 +56,7 @@ UserInputService.InputBegan:Connect(function(input, gameProccessedEvent)
 
 	local draggable = EventHandler.Draggables[firstGuiObject :: GuiObject]
 
-	if not draggable or (draggable and not draggable.Enabled) then
+		if not draggable or not draggable.Enabled then
 		return
 	end
 
@@ -71,7 +71,7 @@ UserInputService.InputEnded:Connect(function(input, gameProccessedEvent)
 
 	local draggable = EventHandler.Dragging
 
-	if not draggable or (draggable and not draggable.Enabled) then
+	if not draggable or not draggable.Enabled then
 		return
 	end
 
