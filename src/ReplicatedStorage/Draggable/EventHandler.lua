@@ -26,8 +26,8 @@ local function InputConditionMet(input: InputObject, gameProccessedEvent: boolea
 	return true
 end
 
-UserInputService.InputChanged:Connect(function(input, gameProccessedEvent)
-	if not InputConditionMet(input, gameProccessedEvent, true) then
+UserInputService.InputChanged:Connect(function(input)
+	if not InputConditionMet(input, false, true) then
 		return
 	end
 

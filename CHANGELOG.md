@@ -1,3 +1,11 @@
+# Changelog
+
+## 1.1.1
+
+- EventHandler InputBegan event will now only recognize if the GuiObject's Interactable is enabled.
+- EventHandler InputBegan will now ignore GuiButtons.
+- Optimized some of the if conditions in `EventHandler`.
+
 ## 1.1.0
 
 ### Added
