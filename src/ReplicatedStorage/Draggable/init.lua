@@ -52,6 +52,10 @@ function Draggable.new(guiObject: GuiObject): Class
 	local self = setmetatable(schema, Prototype)
 	EventHanlder.Draggables[guiObject] = self
 
+	guiObject.Destroying:Connect(function()
+		self:Destroy()
+	end)
+
 	return self
 end
 
