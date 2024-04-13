@@ -2,25 +2,17 @@
 
 ## 1.1.1
 
-- Transferred differencing the `parent.AbsolutePosition` from `Dragging` to `Began` in Prototype.
-- EventHandler InputBegan will now only recognize if the GuiObject's Interactable is enabled.
-- EventHandler InputBegan will now ignore GuiButtons.
-- EventHandler InputChanged removed `gameProccessedEvent`.
-- Optimized some of the if conditions in `EventHandler`.
+- Prototype transferred differencing the `parent.AbsolutePosition` from `Dragging` to `Began`.
+- EventHandler `InputBegan` will now only recognize if the GuiObject's Interactable is enabled.
+- EventHandler `InputBegan` will now ignore GuiButtons.
+- EventHandler `InputChanged` removed `gameProccessedEvent`.
+- EventHandler optimized some of the if conditions.
 
 ## 1.1.0
 
-### Added
-
 - Add auto destroy when draggable GuiObject is destroyed.
 - Add boundary property
-
-### Removed
-
 - Removed `ipairs` on every for loop.
-
-### Updated
-
 - Update documentation
 
 ## 1.0.2
