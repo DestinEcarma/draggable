@@ -48,20 +48,26 @@ UserInputService.InputBegan:Connect(function(input, gameProccessedEvent)
 	end
 
 	local mousePosition = Vector2.new(input.Position.X, input.Position.Y)
-	local firstGuiObject = PlayerGui:GetGuiObjectsAtPosition(mousePosition.X, mousePosition.Y)[1]
+	local guiObjects = PlayerGui:GetGuiObjectsAtPosition(mousePosition.X, mousePosition.Y)
 
-	if not firstGuiObject then
+	if #guiObjects == 0 then
 		return
 	end
 
-	local draggable = EventHandler.Draggables[firstGuiObject :: GuiObject]
+	for _, guiObject in guiObjects do
+		if not (guiObject :: GuiObject).Interactable then
+			continue
+		end
+
+		local draggable = EventHandler.Draggables[guiObject :: GuiObject]
 
 		if not draggable or not draggable.Enabled then
-		return
-	end
+			return
+		end
 
-	Prototype.Began(draggable :: Prototype.Class, mousePosition)
-	EventHandler.Dragging = draggable
+		Prototype.Began(draggable :: Prototype.Class, mousePosition)
+		EventHandler.Dragging = draggable
+	end
 end)
 
 UserInputService.InputEnded:Connect(function(input, gameProccessedEvent)
