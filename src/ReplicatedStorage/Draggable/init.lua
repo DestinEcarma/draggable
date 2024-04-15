@@ -81,7 +81,7 @@ function Prototype.Destroy(self: Class)
 	self.Began:Destroy()
 	self.Ended:Destroy()
 
-	table.clear(self._include)
+	table.clear(self)
 end
 
 --[=[
