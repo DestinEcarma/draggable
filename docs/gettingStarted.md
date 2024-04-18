@@ -20,4 +20,8 @@ To get started using the Draggable module, follow these simple steps:
    local draggableObject = Draggable.new(myFrame)
    ```
 
-Now your GuiObject is draggable! Once you have decided to stop the dragging capability, simply call the `Destroy` method on the class.
+   :::important
+   Make sure that the GuiObject's [Interactable](https://create.roblox.com/docs/reference/engine/classes/GuiObject#Interactable) is set to `true`.
+   :::
+
+Now your GuiObject is draggable! Once you have decided to stop the dragging capability, simply call the [`Destroy`](../api/Draggable#Destroy) method on the class.
