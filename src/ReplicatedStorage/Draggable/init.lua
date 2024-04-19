@@ -92,7 +92,7 @@ end
 ]=]
 function Prototype.IncludeDescendants(self: Class)
 	for _, instance in self._guiObject:GetDescendants() do
-		if not instance:IsA("GuiObject") then
+		if not instance:IsA("GuiObject") or instance:IsA("GuiButton") then
 			continue
 		end
 
@@ -143,6 +143,11 @@ function Prototype.Include(self: Class, guiObjects: { GuiObject })
 
 		if not guiObject:IsDescendantOf(self._guiObject) then
 			warn(`Index #{i} is not a descendant of Draggable`)
+			continue
+		end
+
+		if guiObject:IsA("GuiButton") then
+			warn(`Index #{i} is a GuiButton, it is not allowed to be draggable`)
 			continue
 		end
 
