@@ -37,6 +37,10 @@ function Draggable.new(guiObject: GuiObject): Class
 		return error("Argument #1 must be a descendant of ScreenGui", 2)
 	end
 
+	if guiObject:IsA("GuiButton") then
+		return error("Argument #1 is a GuiButton, it is not allowed to be draggable", 2)
+	end
+
 	local schema: Schema = {
 		_mouseOffset = Vector2.new(),
 		_guiObject = guiObject,
