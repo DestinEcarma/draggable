@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.2.0
+## 1.1.2
 
 - Improved Destroy Method
 - Draggable `new` will now throw an error if argument #1 is a GuiButton.
