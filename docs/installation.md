@@ -19,7 +19,7 @@ You can add the module directly to your account with this [link](https://www.rob
 Add the Draggable module to your `wally.toml` dependency list.
 
 ```toml
-Draggable = "makerdoe/draggable@^1.0"
+Draggable = "destinecarma/draggable@^1.0"
 ```
 
 :::note Wally

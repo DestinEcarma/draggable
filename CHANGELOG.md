@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2.0
+
+- Improved Destroy Method
+- Draggable `new` will now throw an error if argument #1 is a GuiButton.
+- Draggable `Include` will not accept and throw a warning if it contains a GuiButton.
+- Draggable `IncludeDescendants` will now ignore GuiButtons.
+
 ## 1.1.1
 
 - Prototype transferred differencing the `parent.AbsolutePosition` from `Dragging` to `Began`.
