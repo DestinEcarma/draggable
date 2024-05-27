@@ -3,7 +3,8 @@
 	"version": "1.0.0",
 	"private": true,
 	"scripts": {
-		"start": "moonwave dev"
+		"start": "moonwave dev",
+		"deploy": "moonwave build --publish"
 	},
 	"devDependencies": {
 		"moonwave": "^1.1.2"
