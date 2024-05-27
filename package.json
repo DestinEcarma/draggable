@@ -1,1 +1,11 @@
-{}
+{
+	"name": "draggable",
+	"version": "1.0.0",
+	"private": true,
+	"scripts": {
+		"start": "moonwave dev"
+	},
+	"devDependencies": {
+		"moonwave": "^1.1.2"
+	}
+}
