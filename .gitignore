@@ -1,3 +1,5 @@
+/node_modules
+
 # Roblox Studio lock files
 /*.rbxlx.lock
 /*.rbxl.lock
