@@ -8,7 +8,7 @@ Installing the Draggable module is very simple.
 
 ## Github
 
-By visiting the [release](https://github.com/MakerDoe/Draggable/releases) page, you can download the `.rbxm` file there.
+By visiting the [release](https://github.com/DestinEcarma/draggable/releases) page, you can download the `.rbxm` file there.
 
 ## Roblox
 
