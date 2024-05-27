@@ -1,3 +1,4 @@
+title = "Draggable"                                      # From Git
 gitRepoUrl = "https://github.com/DestinEcarma/draggable" # From Git
 
 classOrder = ["Draggable"]
@@ -7,4 +8,6 @@ enabled = true
 includeReadme = false
 
 [docusaurus]
+projectName = "Draggable"
+baseUrl = "/draggable"
 tagline = "Effortlessly replace the deprecated Draggable property in GuiObjects"
