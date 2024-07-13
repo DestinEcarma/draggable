@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[487],{63891:e=>{e.exports=JSON.parse('{"sourceUrl":"https://github.com/DestinEcarma/draggable/blob/master","baseUrl":"/draggable/","classOrder":["Draggable"],"apiCategories":[]}')}}]);
