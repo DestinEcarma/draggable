@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.3
+
+- Fixed boundary bug
+
 ## 1.1.2
 
 - Improved Destroy Method
