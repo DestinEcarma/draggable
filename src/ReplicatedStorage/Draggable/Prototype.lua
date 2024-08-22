@@ -186,7 +186,7 @@ function Prototype.Began(self: Class, mousePosition: Vector2)
 
 		self._boundaryCorners = {
 			topLeft = boundaryPosition + offsetFromAnchorPoint,
-			bottomRight = boundaryPosition + boundary.AbsoluteSize - offsetFromAnchorPoint,
+			bottomRight = boundaryPosition + boundary.AbsoluteSize - guiObject.AbsoluteSize + offsetFromAnchorPoint,
 		}
 	else
 		self._boundaryCorners = nil
