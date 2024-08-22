@@ -1,4 +1,5 @@
 /node_modules
+/Packages
 
 # Roblox Studio lock files
 /*.rbxlx.lock
